@@ -21,14 +21,14 @@ import { ClientProps } from '../interface/interface'
 
 export default function LoginPage() {
   const [user, setUser] = useState('')
-  const [erro, setErro] = useState<boolean | null>(null)
+  const [erro, setErro] = useState<boolean | undefined>(undefined)
   const [data, setData] = useState<ClientProps[]>([])
 
   const router = useRouter()
 
   function handleChange({ target }: ChangeEvent<HTMLInputElement>) {
     setUser(target.value)
-    setErro(null)
+    setErro(undefined)
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -95,8 +95,9 @@ export default function LoginPage() {
                 required
                 onChange={handleChange}
                 value={user}
+                error={erro} // Adiciona a classe de erro quando 'erro' for true
+                helperText={erro && 'Usuário não encontrado'}
               />
-              {erro && <p className={styles.error}>Usuário não encontrado</p>}
             </div>
             <div
               style={{
@@ -105,7 +106,11 @@ export default function LoginPage() {
                 marginTop: '1rem',
               }}
             >
-              <Button variant="contained" type="submit">
+              <Button
+                variant="contained"
+                type="submit"
+                style={{ marginBottom: '2rem' }}
+              >
                 Login
               </Button>
             </div>

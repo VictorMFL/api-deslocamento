@@ -3,6 +3,7 @@
   height: 100vh;
   background-image: url(../../public/images/bg-login.jpg);
   background-size: cover;
+  overflow: hidden;
 }
 
 .container_input {
@@ -23,11 +24,4 @@
   text-decoration: none;
   color: #18A6C6;
   font-style: italic;
-}
-
-.error {
-  position: absolute;
-  bottom: -0.9rem;
-  font-size: 0.8rem;
-  color: #ff0000;
 }
