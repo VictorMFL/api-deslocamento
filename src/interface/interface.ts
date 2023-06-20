@@ -1,5 +1,5 @@
 export interface ClientProps {
-  id: number
+  id?: number
   numeroDocumento: string
   tipoDocumento: string
   nome: string
@@ -11,14 +11,14 @@ export interface ClientProps {
 }
 
 export interface ConductorProps {
-  id: number
+  id?: number
   numeroHabilitacao: string
   categoriaHabilitacao: string
   vencimentoHabilitacao: string
 }
 
 export interface DisplacementProps {
-  id: number
+  id?: number
   kmInicial: number
   kmFinal: number
   inicioDeslocamento: string
@@ -26,13 +26,13 @@ export interface DisplacementProps {
   checkList: string
   motivo: string
   observacao: string
-  idCondutor: number
-  idVeiculo: number
-  idCliente: number
+  idCondutor?: number
+  idVeiculo?: number
+  idCliente?: number
 }
 
 export interface VehicleProps {
-  id: number
+  id?: number
   marcaModelo: string
   anoFabricacao: string
   kmAtual: number
