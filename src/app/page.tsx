@@ -33,7 +33,7 @@ export default function LoginPage() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    const filteredData = data.filter((item) => item.nome === user)
+    const filteredData = data.filter((item) => item.nome === user) // verifica se o nome de usuário digitado já está cadastrado na API
     if (filteredData.length === 0) {
       setErro(true)
     } else {
