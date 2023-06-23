@@ -3,3 +3,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --gray-200: #686071;
+  --gray-300: #797085;
+}
+
+/* css do modal */
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+}
+
+.content > span {
+  position: absolute;
+  right: 0;
+  color: blue;
+  font-size: 14px;
+  cursor: pointer;
+}

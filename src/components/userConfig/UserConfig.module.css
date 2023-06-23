@@ -1,0 +1,42 @@
+.container {
+  position: absolute;
+  right: 0;
+  width: 270px;
+  padding: 24px 24px 16px 24px;
+  background-color: #f1ecdf;
+  border-radius: 8px;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.user h1 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.user p {
+  font-size: 14px;
+  color: var(--gray-200);
+}
+
+.data {
+  padding-top: 1rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.title {
+  color: var(--gray-300);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  margin-bottom: 1rem;
+}
