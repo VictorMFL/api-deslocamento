@@ -10,7 +10,7 @@ import {
 } from '@mui/material'
 
 // icones
-import { MdNotifications, MdOutlineMenu } from 'react-icons/md'
+import { MdNotifications } from 'react-icons/md'
 import { RiAccountCircleLine } from 'react-icons/ri'
 
 // menu de configuração do usuário
@@ -27,15 +27,6 @@ export default function Header() {
     <div style={{ height: '60px' }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MdOutlineMenu />
-          </IconButton>
           <Typography variant="h6" noWrap component="div">
             MUI
           </Typography>
