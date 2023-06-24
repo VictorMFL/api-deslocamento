@@ -37,6 +37,8 @@ export default function LoginPage() {
     if (filteredData.length === 0) {
       setErro(true)
     } else {
+      const id = String(filteredData[0].id) // pega o id do usuário para fazer o GET para a API
+      window.localStorage.setItem('Id', id)
       router.push('/home')
     }
   }
