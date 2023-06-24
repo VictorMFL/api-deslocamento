@@ -24,7 +24,7 @@ export default function Home() {
       const documentType = response.data.tipoDocumento
       const number = response.data.numero
       const neighborhood = response.data.bairro
-      const logradouro = response.data.logradouro
+      const publicPlace = response.data.logradouro
       window.localStorage.setItem('Nome', name)
       window.localStorage.setItem('UF', uf)
       window.localStorage.setItem('Cidade', city)
@@ -32,7 +32,7 @@ export default function Home() {
       window.localStorage.setItem('Tipo-documento', documentType)
       window.localStorage.setItem('Numero', number)
       window.localStorage.setItem('Bairro', neighborhood)
-      window.localStorage.setItem('Logradouro', logradouro)
+      window.localStorage.setItem('Logradouro', publicPlace)
       console.log(response.data)
     } catch (error) {
       console.log(error)
@@ -43,6 +43,7 @@ export default function Home() {
     get()
   }, [])
 
+  if (data.length === 0) return null
   return (
     <>
       <Header />

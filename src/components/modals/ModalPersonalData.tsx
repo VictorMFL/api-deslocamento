@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 import { Modal, Box, Typography } from '@mui/material'
+
+import ModalEdit from './ModalEdit'
 
 type ModalPersonalDataProps = {
   modalPersonal: boolean
@@ -9,6 +13,10 @@ export default function ModalPersonalData({
   modalPersonal,
   closePersonaldata,
 }: ModalPersonalDataProps) {
+  const [modalEdit, setModalEdit] = useState(false)
+  const openModalEdit = () => setModalEdit(true)
+  const closeModalEdit = () => setModalEdit(false)
+
   const name = window.localStorage.getItem('Nome')
   const uf = window.localStorage.getItem('UF')
   const city = window.localStorage.getItem('Cidade')
@@ -19,35 +27,49 @@ export default function ModalPersonalData({
   const documentNumber = window.localStorage.getItem('Num-documento')
 
   return (
-    <Modal
-      keepMounted
-      open={modalPersonal}
-      onClose={closePersonaldata}
-      aria-labelledby="keep-mounted-modal-title"
-      aria-describedby="keep-mounted-modal-description"
-    >
-      <Box>
-        <div className="modalContent">
-          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-            Dados pessoais
-          </Typography>
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            <div className="content">
-              <span>Editar</span>
-              <p>Nome: {name}</p>
-              <p>Estado: {uf}</p>
-              <p>Cidade: {city}</p>
-              <p>Número: {number === '' ? 'Não informado' : number}</p>
-              <p>Bairro: {neighborhood}</p>
-              <p>
-                Logradouro: {publicPlace === '' ? 'Não informado' : publicPlace}
-              </p>
-              <p>Tipo de documento: {documentType}</p>
-              <p>Número do documento: {documentNumber}</p>
-            </div>
-          </Typography>
-        </div>
-      </Box>
-    </Modal>
+    <>
+      <Modal
+        keepMounted
+        open={modalPersonal}
+        onClose={closePersonaldata}
+        aria-labelledby="keep-mounted-modal-title"
+        aria-describedby="keep-mounted-modal-description"
+      >
+        <Box>
+          <div className="modalContent">
+            <Typography
+              id="keep-mounted-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Dados pessoais
+            </Typography>
+            <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              <div className="content">
+                <span onClick={openModalEdit}>Editar</span>
+                <p>Nome: {name}</p>
+                <p>Estado: {uf}</p>
+                <p>Cidade: {city}</p>
+                <p>Número: {number === '' ? 'Não informado' : number}</p>
+                <p>Bairro: {neighborhood}</p>
+                <p>
+                  Logradouro:{' '}
+                  {publicPlace === '' ? 'Não informado' : publicPlace}
+                </p>
+                <p>Tipo de documento: {documentType}</p>
+                <p>Número do documento: {documentNumber}</p>
+              </div>
+            </Typography>
+          </div>
+        </Box>
+      </Modal>
+      {modalEdit && (
+        <ModalEdit
+          modalEdit={modalEdit}
+          closeModalEdit={closeModalEdit}
+          closePersonaldata={closePersonaldata}
+        />
+      )}
+    </>
   )
 }
