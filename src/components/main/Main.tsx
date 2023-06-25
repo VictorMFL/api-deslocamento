@@ -69,18 +69,6 @@ export default function Main() {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <Card
-              name="José"
-              cnh="A"
-              brandCar="Corsa"
-              plate="BHV243"
-              kmActual={2}
-              fabrication={2021}
-              numCnh="1234"
-              maturityCnh="2023"
-            />
-          </Grid>
           {conductorData.map((item, index) => (
             <Grid item xs={4} key={index}>
               <Card
