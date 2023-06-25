@@ -1,16 +1,8 @@
 import { useState } from 'react'
 
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  Box,
-  Badge,
-} from '@mui/material'
+import { AppBar, Toolbar, IconButton, Typography, Box } from '@mui/material'
 
-// icones
-import { MdNotifications } from 'react-icons/md'
+// icone
 import { RiAccountCircleLine } from 'react-icons/ri'
 
 // menu de configuração do usuário
@@ -32,20 +24,6 @@ export default function Header() {
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            ></IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={0} color="error">
-                <MdNotifications />
-              </Badge>
-            </IconButton>
             <IconButton
               size="large"
               edge="end"
