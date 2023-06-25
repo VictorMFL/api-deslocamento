@@ -5,6 +5,7 @@
 }
 
 :root {
+  --gray-100: #dadada;
   --gray-200: #686071;
   --gray-300: #797085;
 }
@@ -32,4 +33,16 @@
   color: blue;
   font-size: 14px;
   cursor: pointer;
+}
+
+.back_card {
+  position: relative;
+  transform: rotateY(180deg);
+  animation: virarCard 1s forwards;
+}
+
+@keyframes virarCard {
+  to {
+    transform: initial;
+  }
 }

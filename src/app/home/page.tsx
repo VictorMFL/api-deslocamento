@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Header from '@/components/header/Header'
+import Main from '@/components/main/Main'
 
 import { ClientProps } from '@/interface/interface'
 
@@ -43,11 +44,12 @@ export default function Home() {
     get()
   }, [])
 
-  if (data.length === 0) return null
+  if (data.length > 0) return null
   return (
     <>
       <Header />
-      <p>Home</p>
+      <Main />
+      <p>footer</p>
     </>
   )
 }

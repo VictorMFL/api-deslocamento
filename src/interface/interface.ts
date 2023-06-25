@@ -12,6 +12,7 @@ export interface ClientProps {
 
 export interface ConductorProps {
   id?: number
+  nome: string
   numeroHabilitacao: string
   categoriaHabilitacao: string
   vencimentoHabilitacao: string
@@ -33,7 +34,20 @@ export interface DisplacementProps {
 
 export interface VehicleProps {
   id?: number
+  placa: string
   marcaModelo: string
-  anoFabricacao: string
+  anoFabricacao: number
   kmAtual: number
+}
+
+export type CardProps = {
+  name?: string
+  cnh: string
+  brandCar?: string // marca do carro
+  plate?: string
+  kmActual?: number | string
+  fabrication?: number | string
+  numCnh?: string
+  maturityCnh?: string // vencimento da CNH
+  virou?: () => void
 }
