@@ -14,6 +14,7 @@ export default function ModalEditMain({
   modalEdit,
   closeEditMain,
 }: ModalEditMainProps) {
+  const idVehicle = window.localStorage.getItem('Id-veiculo')
   const [modalEditConductor, setModalEditConductor] = useState(false)
   const openEditConductor = () => setModalEditConductor(true)
   const closeEditConductor = () => setModalEditConductor(false)
@@ -59,6 +60,7 @@ export default function ModalEditMain({
                   variant="contained"
                   style={{ marginLeft: '1rem' }}
                   onClick={openEditVehicle}
+                  disabled={idVehicle === '1000'}
                 >
                   Veículo
                 </Button>
