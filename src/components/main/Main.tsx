@@ -62,18 +62,20 @@ export default function Main() {
           minHeight: '90vh',
           padding: '2rem 0',
           display: 'flex',
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: 'var(--gray-100)',
           marginTop: '5px',
         }}
       >
+        <h1 style={{ marginBottom: '1rem' }}>Motoristas</h1>
         <Grid container spacing={2}>
           {conductorData.map((item, index) => (
             <Grid item xs={4} key={index}>
               <Card
                 name={item.nome}
-                cnh={item.categoriaHabilitacao}
+                cnh={item.catergoriaHabilitacao}
                 numCnh={item.numeroHabilitacao}
                 maturityCnh={item.vencimentoHabilitacao}
                 brandCar={
