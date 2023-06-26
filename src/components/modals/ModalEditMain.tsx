@@ -43,8 +43,12 @@ export default function ModalEditMain({
                   justifyContent: 'space-between',
                 }}
               >
-                <Button variant="contained" onClick={openEditConductor}>
-                  Motorista
+                <Button // ESTÁ DESABILITADO POIS O PUT PARA ALTERAR O CONDUTOR NÃO ESTÁ FUNCIONANDO NO MOMENTO
+                  variant="contained"
+                  onClick={openEditConductor}
+                  disabled
+                >
+                  Motorista {"'Não disponível'"}
                 </Button>
                 <Button variant="contained" style={{ marginLeft: '1rem' }}>
                   Veículo
