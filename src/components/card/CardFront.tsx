@@ -19,17 +19,23 @@ export default function CardFront({
   plate,
   idConductor,
   idVehicle,
+  fabrication,
+  kmActual,
   virou,
 }: CardProps) {
   const [modalEdit, setModalEdit] = useState(false)
   const openEditMain = () => {
     setModalEdit(true)
     window.localStorage.setItem('Id-condutor', String(idConductor))
-    window.localStorage.setItem('Id-veiculo', String(idVehicle))
     window.localStorage.setItem('Nome-condutor', String(name))
     window.localStorage.setItem('Num-cnh', String(numCnh))
     window.localStorage.setItem('Cat-cnh', cnh)
     window.localStorage.setItem('Ven-cnh', String(maturityCnh))
+    window.localStorage.setItem('Id-veiculo', String(idVehicle))
+    window.localStorage.setItem('Placa', String(plate))
+    window.localStorage.setItem('Marca-carro', String(brandCar))
+    window.localStorage.setItem('Fabricacao', String(fabrication))
+    window.localStorage.setItem('Km-atual', String(kmActual))
   }
   const closeEditMain = () => setModalEdit(false)
 

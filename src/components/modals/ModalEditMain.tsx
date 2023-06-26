@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Modal, Box, Typography, Button } from '@mui/material'
 
 import ModalEditConductor from './ModalEditConductor'
+import ModalEditVehicle from './ModalEditVehicle'
 
 type ModalEditMainProps = {
   modalEdit: boolean
@@ -16,6 +17,10 @@ export default function ModalEditMain({
   const [modalEditConductor, setModalEditConductor] = useState(false)
   const openEditConductor = () => setModalEditConductor(true)
   const closeEditConductor = () => setModalEditConductor(false)
+
+  const [modalEditVehicle, setModalEditVehicle] = useState(false)
+  const openEditVehicle = () => setModalEditVehicle(true)
+  const closeEditVehicle = () => setModalEditVehicle(false)
   return (
     <>
       <Modal
@@ -50,7 +55,11 @@ export default function ModalEditMain({
                 >
                   Motorista {"'Não disponível'"}
                 </Button>
-                <Button variant="contained" style={{ marginLeft: '1rem' }}>
+                <Button
+                  variant="contained"
+                  style={{ marginLeft: '1rem' }}
+                  onClick={openEditVehicle}
+                >
                   Veículo
                 </Button>
               </div>
@@ -62,6 +71,13 @@ export default function ModalEditMain({
         <ModalEditConductor
           modalEditConductor={modalEditConductor}
           closeEditConductor={closeEditConductor}
+        />
+      )}
+      {modalEditVehicle && (
+        <ModalEditVehicle
+          modalEditVehicle={modalEditVehicle}
+          closeEditVehicle={closeEditVehicle}
+          closeEditMain={closeEditMain}
         />
       )}
     </>

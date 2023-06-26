@@ -58,6 +58,8 @@ export default function Card({
           virou={virou}
           idConductor={idConductor}
           idVehicle={idVehicle}
+          fabrication={fabrication}
+          kmActual={kmActual}
         />
       )}
     </Box>
