@@ -85,6 +85,7 @@ export default function ModalDelete({
                   variant="contained"
                   style={{ marginLeft: '1rem' }}
                   onClick={DeleteVehicle}
+                  disabled={idVehicle === '1000'}
                 >
                   Veículo
                 </Button>

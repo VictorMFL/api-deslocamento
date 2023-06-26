@@ -12,17 +12,6 @@ import { ConductorProps, VehicleProps } from '../../interface/interface'
 export default function Main() {
   const [conductorData, setConductorData] = useState<ConductorProps[]>([])
   const [vehicleData, setVehicleData] = useState<VehicleProps[]>([])
-  //
-  //
-  //
-  //
-  //
-  // LEMBRE DE TROCAR O IF DA HOME!!!!
-  //
-  //
-  //
-  //
-  //
 
   async function getConductor() {
     try {
