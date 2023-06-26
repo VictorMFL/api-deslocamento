@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   CardContent,
   Typography,
@@ -10,6 +12,8 @@ import { MdDelete } from 'react-icons/md'
 
 import { CardProps } from '../../interface/interface'
 
+import ModalDelete from '../modals/ModalDelete'
+
 export default function CardBack({
   cnh,
   brandCar,
@@ -17,8 +21,17 @@ export default function CardBack({
   fabrication,
   numCnh,
   maturityCnh,
+  idConductor,
+  idVehicle,
   virou,
 }: CardProps) {
+  const [modalDelete, setModalDelete] = useState(false)
+  const openDelete = () => {
+    window.localStorage.setItem('Excluir-condutor', String(idConductor))
+    window.localStorage.setItem('Excluir-veiculo', String(idVehicle))
+    setModalDelete(true)
+  }
+  const closeDelete = () => setModalDelete(false)
   return (
     <>
       <CardContent
@@ -66,9 +79,17 @@ export default function CardBack({
             left: '0',
           }}
         >
-          <MdDelete size={24} color="#f44336" style={{ cursor: 'pointer' }} />
+          <MdDelete
+            size={24}
+            color="#f44336"
+            style={{ cursor: 'pointer' }}
+            onClick={openDelete}
+          />
         </CardActions>
       </CardContent>
+      {modalDelete && (
+        <ModalDelete modalDelete={modalDelete} closeDelete={closeDelete} />
+      )}
     </>
   )
 }

@@ -21,9 +21,11 @@ export default function Card({
   idVehicle,
 }: CardProps) {
   const [virarCard, setVirarCard] = useState(false)
+
   function virou() {
     setVirarCard(!virarCard)
   }
+
   return (
     <Box
       style={{
@@ -46,6 +48,8 @@ export default function Card({
           numCnh={numCnh}
           maturityCnh={maturityCnh}
           virou={virou}
+          idConductor={idConductor}
+          idVehicle={idVehicle}
         />
       ) : (
         <CardFront
