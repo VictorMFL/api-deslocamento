@@ -6,6 +6,8 @@ import {
   Box,
 } from '@mui/material'
 
+import { MdDelete } from 'react-icons/md'
+
 import { CardProps } from '../../interface/interface'
 
 export default function CardBack({
@@ -26,7 +28,7 @@ export default function CardBack({
           placeItems: 'center',
         }}
       >
-        <Box>
+        <Box sx={{ mt: '10px' }}>
           <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
             Motorista
           </Typography>
@@ -56,6 +58,15 @@ export default function CardBack({
           <Button size="small" onClick={virou}>
             Voltar
           </Button>
+        </CardActions>
+        <CardActions
+          style={{
+            position: 'absolute',
+            top: '-5px',
+            left: '0',
+          }}
+        >
+          <MdDelete size={24} color="#f44336" style={{ cursor: 'pointer' }} />
         </CardActions>
       </CardContent>
     </>

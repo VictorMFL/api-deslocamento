@@ -17,6 +17,8 @@ export default function Card({
   fabrication,
   numCnh,
   maturityCnh,
+  idConductor,
+  idVehicle,
 }: CardProps) {
   const [virarCard, setVirarCard] = useState(false)
   function virou() {
@@ -49,9 +51,13 @@ export default function Card({
         <CardFront
           name={name}
           cnh={cnh}
+          numCnh={numCnh}
+          maturityCnh={maturityCnh}
           brandCar={brandCar}
           plate={plate}
           virou={virou}
+          idConductor={idConductor}
+          idVehicle={idVehicle}
         />
       )}
     </Box>

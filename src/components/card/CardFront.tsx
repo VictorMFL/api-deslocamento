@@ -1,16 +1,38 @@
+import { useState } from 'react'
+
 import { CardContent, Typography, CardActions, Button } from '@mui/material'
 
+// icones
 import { RiAccountCircleLine } from 'react-icons/ri'
+import { CiEdit } from 'react-icons/ci'
 
 import { CardProps } from '../../interface/interface'
+
+import ModalEditMain from '../modals/ModalEditMain'
 
 export default function CardFront({
   name,
   cnh,
+  numCnh,
+  maturityCnh,
   brandCar,
   plate,
+  idConductor,
+  idVehicle,
   virou,
 }: CardProps) {
+  const [modalEdit, setModalEdit] = useState(false)
+  const openEditMain = () => {
+    setModalEdit(true)
+    window.localStorage.setItem('Id-condutor', String(idConductor))
+    window.localStorage.setItem('Id-veiculo', String(idVehicle))
+    window.localStorage.setItem('Nome-condutor', String(name))
+    window.localStorage.setItem('Num-cnh', String(numCnh))
+    window.localStorage.setItem('Cat-cnh', cnh)
+    window.localStorage.setItem('Ven-cnh', String(maturityCnh))
+  }
+  const closeEditMain = () => setModalEdit(false)
+
   return (
     <>
       <RiAccountCircleLine size={64} />
@@ -35,6 +57,17 @@ export default function CardFront({
           Ver mais
         </Button>
       </CardActions>
+      <CardActions style={{ position: 'absolute', top: '-5px', left: '0' }}>
+        <CiEdit
+          size={24}
+          style={{ cursor: 'pointer' }}
+          title="editar"
+          onClick={openEditMain}
+        />
+      </CardActions>
+      {modalEdit && (
+        <ModalEditMain modalEdit={modalEdit} closeEditMain={closeEditMain} />
+      )}
     </>
   )
 }

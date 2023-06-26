@@ -49,5 +49,7 @@ export type CardProps = {
   fabrication?: number | string
   numCnh?: string
   maturityCnh?: string // vencimento da CNH
+  idConductor?: number
+  idVehicle?: number
   virou?: () => void
 }

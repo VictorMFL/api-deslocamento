@@ -74,6 +74,12 @@ export default function Main() {
           {conductorData.map((item, index) => (
             <Grid item xs={4} key={index}>
               <Card
+                idConductor={item.id}
+                idVehicle={
+                  vehicleData[index]?.id === undefined
+                    ? 1000 // numero gande para poder não executar o PUT pois esse id não tem na API.
+                    : vehicleData[index]?.id
+                }
                 name={item.nome}
                 cnh={item.catergoriaHabilitacao}
                 numCnh={item.numeroHabilitacao}
