@@ -79,8 +79,8 @@ export default function Main() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: 'var(--gray-100)',
-          marginTop: '5px',
+          backgroundColor: ' #1e88e5',
+          marginTop: '3px',
         }}
       >
         <h1 style={{ marginBottom: '1rem' }}>Motoristas</h1>
