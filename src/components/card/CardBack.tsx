@@ -24,6 +24,7 @@ export default function CardBack({
   idConductor,
   idVehicle,
   virou,
+  update,
 }: CardProps) {
   const [modalDelete, setModalDelete] = useState(false)
   const openDelete = () => {
@@ -88,7 +89,11 @@ export default function CardBack({
         </CardActions>
       </CardContent>
       {modalDelete && (
-        <ModalDelete modalDelete={modalDelete} closeDelete={closeDelete} />
+        <ModalDelete
+          modalDelete={modalDelete}
+          closeDelete={closeDelete}
+          update={update}
+        />
       )}
     </>
   )

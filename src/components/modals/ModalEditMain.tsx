@@ -8,11 +8,13 @@ import ModalEditVehicle from './ModalEditVehicle'
 type ModalEditMainProps = {
   modalEdit: boolean
   closeEditMain: () => void
+  update: () => void
 }
 
 export default function ModalEditMain({
   modalEdit,
   closeEditMain,
+  update,
 }: ModalEditMainProps) {
   const idVehicle = window.localStorage.getItem('Id-veiculo')
   const [modalEditConductor, setModalEditConductor] = useState(false)
@@ -73,6 +75,7 @@ export default function ModalEditMain({
         <ModalEditConductor
           modalEditConductor={modalEditConductor}
           closeEditConductor={closeEditConductor}
+          update={update}
         />
       )}
       {modalEditVehicle && (
@@ -80,6 +83,7 @@ export default function ModalEditMain({
           modalEditVehicle={modalEditVehicle}
           closeEditVehicle={closeEditVehicle}
           closeEditMain={closeEditMain}
+          update={update}
         />
       )}
     </>

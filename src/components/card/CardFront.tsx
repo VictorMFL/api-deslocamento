@@ -21,6 +21,7 @@ export default function CardFront({
   idVehicle,
   fabrication,
   kmActual,
+  update,
   virou,
 }: CardProps) {
   const [modalEdit, setModalEdit] = useState(false)
@@ -72,7 +73,11 @@ export default function CardFront({
         />
       </CardActions>
       {modalEdit && (
-        <ModalEditMain modalEdit={modalEdit} closeEditMain={closeEditMain} />
+        <ModalEditMain
+          modalEdit={modalEdit}
+          closeEditMain={closeEditMain}
+          update={update}
+        />
       )}
     </>
   )

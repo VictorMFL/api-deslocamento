@@ -13,11 +13,13 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 type ModalEditMainProps = {
   modalEditConductor: boolean
   closeEditConductor: () => void
+  update: () => void
 }
 
 export default function ModalEditMain({
   modalEditConductor,
   closeEditConductor,
+  update,
 }: ModalEditMainProps) {
   const name = window.localStorage.getItem('Nome-condutor')
   const numCnh = window.localStorage.getItem('Num-cnh')
@@ -44,6 +46,7 @@ export default function ModalEditMain({
         `https://api-deslocamento.herokuapp.com/api/v1/Condutor/${idLocal}`,
         dados,
       )
+      update()
       console.log('Condutor atualizado:', response.data)
       console.log(response.data)
     } catch (error) {

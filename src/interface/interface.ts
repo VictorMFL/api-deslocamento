@@ -52,4 +52,5 @@ export type CardProps = {
   idConductor?: number
   idVehicle?: number
   virou?: () => void
+  update: () => void
 }

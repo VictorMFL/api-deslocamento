@@ -19,6 +19,10 @@ import ModalCreateVehicle from '../modals/ModalCreateVehicle'
 import Login from '../login/Login'
 
 export default function Main() {
+  const [att, setAtt] = useState(false)
+
+  const update = () => setAtt(!att) // atualiza od cards
+
   const [conductorData, setConductorData] = useState<ConductorProps[]>([])
   const [vehicleData, setVehicleData] = useState<VehicleProps[]>([])
   const [openAdd, setOpenAdd] = useState(false)
@@ -68,7 +72,7 @@ export default function Main() {
   useEffect(() => {
     getConductor()
     getVehicle()
-  }, [])
+  }, [att])
 
   if (conductorData.length === 0) return <Login />
   return (
@@ -91,6 +95,7 @@ export default function Main() {
           {conductorData.map((item, index) => (
             <Grid item xs={4} key={index}>
               <Card
+                update={update}
                 idConductor={item.id}
                 idVehicle={
                   vehicleData[index]?.id === undefined
@@ -182,12 +187,14 @@ export default function Main() {
         <ModalCreateConductor
           createConductor={createConductor}
           closeCreateConductor={closeCreateConductor}
+          update={update}
         />
       )}
       {createVehicle && (
         <ModalCreateVehicle
           createVehicle={createVehicle}
           closeCreateVehicle={closeCreateVehicle}
+          update={update}
         />
       )}
     </main>

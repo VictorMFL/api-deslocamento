@@ -19,6 +19,7 @@ export default function Card({
   maturityCnh,
   idConductor,
   idVehicle,
+  update,
 }: CardProps) {
   const [virarCard, setVirarCard] = useState(false)
 
@@ -50,6 +51,7 @@ export default function Card({
           virou={virou}
           idConductor={idConductor}
           idVehicle={idVehicle}
+          update={update}
         />
       ) : (
         <CardFront
@@ -64,6 +66,7 @@ export default function Card({
           idVehicle={idVehicle}
           fabrication={fabrication}
           kmActual={kmActual}
+          update={update}
         />
       )}
     </Box>

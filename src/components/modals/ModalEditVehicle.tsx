@@ -8,12 +8,14 @@ type ModalEditVehicleProps = {
   modalEditVehicle: boolean
   closeEditVehicle: () => void
   closeEditMain: () => void
+  update: () => void
 }
 
 export default function ModalEditVehicle({
   modalEditVehicle,
   closeEditVehicle,
   closeEditMain,
+  update,
 }: ModalEditVehicleProps) {
   const plate = window.localStorage.getItem('Placa')
   const brandCarLocal = window.localStorage.getItem('Marca-carro') ?? ''
@@ -49,6 +51,7 @@ export default function ModalEditVehicle({
         `https://api-deslocamento.herokuapp.com/api/v1/Veiculo/${idLocal}`,
         dados,
       )
+      update()
       console.log('Veículo atualizado:', response.data)
       console.log(response.data)
     } catch (error) {

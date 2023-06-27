@@ -5,6 +5,7 @@ import { Modal, Box, Typography, Button } from '@mui/material'
 type ModalDeleteProps = {
   modalDelete: boolean
   closeDelete: () => void
+  update: () => void
 }
 const deleteData = async (url: string, id: number) => {
   try {
@@ -21,6 +22,7 @@ const deleteData = async (url: string, id: number) => {
 export default function ModalDelete({
   modalDelete,
   closeDelete,
+  update,
 }: ModalDeleteProps) {
   const idConductor = window.localStorage.getItem('Excluir-condutor')
   const idVehicle = window.localStorage.getItem('Excluir-veiculo')
@@ -31,6 +33,7 @@ export default function ModalDelete({
         'https://api-deslocamento.herokuapp.com/api/v1/Condutor',
         Number(idConductor),
       )
+      update()
       closeDelete()
       console.log(res)
     } catch (error) {
@@ -44,6 +47,7 @@ export default function ModalDelete({
         'https://api-deslocamento.herokuapp.com/api/v1/Veiculo',
         Number(idVehicle),
       )
+      update()
       closeDelete()
       console.log(res)
     } catch (error) {

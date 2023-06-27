@@ -12,6 +12,7 @@ import { FaIdCard } from 'react-icons/fa'
 type CreateConductorProps = {
   createVehicle: boolean
   closeCreateVehicle: () => void
+  update: () => void
 }
 
 const postData = async (url: string, requestBody: any) => {
@@ -29,6 +30,7 @@ const postData = async (url: string, requestBody: any) => {
 export default function ModalCreateVehicle({
   createVehicle,
   closeCreateVehicle,
+  update,
 }: CreateConductorProps) {
   const [plate, setPlate] = useState('') // placa
   const [brandCar, setBrandCar] = useState('') // marca/modelo
@@ -66,6 +68,7 @@ export default function ModalCreateVehicle({
         'https://api-deslocamento.herokuapp.com/api/v1/Veiculo',
         requestBody,
       )
+      update()
       if (res) {
         console.log(res)
       }

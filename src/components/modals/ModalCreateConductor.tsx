@@ -12,6 +12,7 @@ import { FaIdCard } from 'react-icons/fa'
 type CreateConductorProps = {
   createConductor: boolean
   closeCreateConductor: () => void
+  update: () => void
 }
 
 const postData = async (url: string, requestBody: any) => {
@@ -29,6 +30,7 @@ const postData = async (url: string, requestBody: any) => {
 export default function ModalCreateConductor({
   createConductor,
   closeCreateConductor,
+  update,
 }: CreateConductorProps) {
   const [name, setName] = useState('') // nome do usuário
   const [cnhNumber, setCnhNumber] = useState('') // número da CNH
@@ -64,11 +66,14 @@ export default function ModalCreateConductor({
         'https://api-deslocamento.herokuapp.com/api/v1/Condutor',
         requestBody,
       )
+      update()
       if (res) {
         console.log(res)
       }
+      return true
     } catch (error) {
       console.error('Falha ao criar o recurso', error)
+      return false
     }
   }
   return (
