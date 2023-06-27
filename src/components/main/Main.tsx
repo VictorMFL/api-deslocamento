@@ -1,17 +1,43 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import axios from 'axios'
 
-import { Container, Grid } from '@mui/material'
+import { Container, Grid, Fab, Popover } from '@mui/material'
 
 // componente card
 import Card from '../card/Card'
 
 import { ConductorProps, VehicleProps } from '../../interface/interface'
 
+// icones
+import { BsPersonPlusFill } from 'react-icons/bs'
+import { AiOutlineCar } from 'react-icons/ai'
+
+import ModalCreateConductor from '../modals/ModalCreateConductor'
+import ModalCreateVehicle from '../modals/ModalCreateVehicle'
+
 export default function Main() {
   const [conductorData, setConductorData] = useState<ConductorProps[]>([])
   const [vehicleData, setVehicleData] = useState<VehicleProps[]>([])
+  const [openAdd, setOpenAdd] = useState(false)
+  const anchorRef = useRef(null)
+
+  function openCreate() {
+    setOpenAdd(true)
+  }
+
+  function closeCreate() {
+    setOpenAdd(false)
+  }
+
+  // modal
+  const [createConductor, setCreateConductor] = useState(false)
+  const openCreateConductor = () => setCreateConductor(true)
+  const closeCreateConductor = () => setCreateConductor(false)
+
+  const [createVehicle, setCreateVehicle] = useState(false)
+  const openCreateVehicle = () => setCreateVehicle(true)
+  const closeCreateVehicle = () => setCreateVehicle(false)
 
   async function getConductor() {
     try {
@@ -42,7 +68,6 @@ export default function Main() {
     getVehicle()
   }, [])
 
-  if (conductorData.length === 0) return null
   return (
     <main>
       <Container
@@ -98,6 +123,70 @@ export default function Main() {
           ))}
         </Grid>
       </Container>
+      <Fab
+        ref={anchorRef}
+        title="Criar"
+        color="primary"
+        aria-label="add"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          fontSize: '2rem',
+        }}
+        onClick={openCreate}
+      >
+        +
+      </Fab>
+      <Popover
+        open={openAdd}
+        anchorEl={anchorRef.current}
+        onClose={closeCreate}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <div
+          style={{
+            padding: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '20px',
+          }}
+        >
+          <p>Crie novos Condutores e Veículos</p>
+          <BsPersonPlusFill
+            size={32}
+            title="Criar novo condutor"
+            style={{ cursor: 'pointer' }}
+            onClick={openCreateConductor}
+          />
+          <AiOutlineCar
+            size={32}
+            title="Criar novo veículo"
+            onClick={openCreateVehicle}
+            style={{ cursor: 'pointer' }}
+          />
+        </div>
+      </Popover>
+      {createConductor && (
+        <ModalCreateConductor
+          createConductor={createConductor}
+          closeCreateConductor={closeCreateConductor}
+        />
+      )}
+      {createVehicle && (
+        <ModalCreateVehicle
+          createVehicle={createVehicle}
+          closeCreateVehicle={closeCreateVehicle}
+        />
+      )}
     </main>
   )
 }
