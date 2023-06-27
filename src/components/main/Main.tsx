@@ -81,7 +81,7 @@ export default function Main() {
         maxWidth="lg"
         sx={{
           minHeight: '90vh',
-          padding: '2rem 0',
+          padding: '2rem 1rem',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
@@ -93,7 +93,7 @@ export default function Main() {
         <h1 style={{ marginBottom: '1rem' }}>Motoristas</h1>
         <Grid container spacing={2}>
           {conductorData.map((item, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
               <Card
                 update={update}
                 idConductor={item.id}

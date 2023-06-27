@@ -45,7 +45,7 @@ export default function Home() {
     get()
   }, [])
 
-  if (data.length > 0) return null 
+  if (data.length > 0) return null
   return (
     <>
       <Header />
