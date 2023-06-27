@@ -16,6 +16,8 @@ import { AiOutlineCar } from 'react-icons/ai'
 import ModalCreateConductor from '../modals/ModalCreateConductor'
 import ModalCreateVehicle from '../modals/ModalCreateVehicle'
 
+import Login from '../login/Login'
+
 export default function Main() {
   const [conductorData, setConductorData] = useState<ConductorProps[]>([])
   const [vehicleData, setVehicleData] = useState<VehicleProps[]>([])
@@ -68,6 +70,7 @@ export default function Main() {
     getVehicle()
   }, [])
 
+  if (conductorData.length === 0) return <Login />
   return (
     <main>
       <Container
