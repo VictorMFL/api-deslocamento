@@ -5,11 +5,13 @@ import { RiAccountCircleLine } from 'react-icons/ri'
 import { MdArrowForwardIos } from 'react-icons/md'
 import { VscKey } from 'react-icons/vsc'
 import { FiLogOut } from 'react-icons/fi'
+import { AiOutlineWarning } from 'react-icons/ai'
 
 //  modais
 import ModalPersonalData from '../modals/ModalPersonalData'
 import ModalInfo from '../modals/ModalInfo'
 import ModalLogout from '../modals/ModalLogout'
+import ModalDeleteUser from '../modals/ModalDeleteUser'
 
 import styles from './UserConfig.module.css'
 
@@ -25,6 +27,10 @@ export default function UserConfig() {
   const [modalLogout, setModalLogout] = useState(false)
   const openModalLogout = () => setModalLogout(true)
   const closeModalLogout = () => setModalLogout(false)
+
+  const [modalDelete, setModalDelete] = useState(false)
+  const openModalDelete = () => setModalDelete(true)
+  const closeModalDelete = () => setModalDelete(false)
 
   const name = window.localStorage.getItem('Nome')
   const city = window.localStorage.getItem('Cidade')
@@ -79,6 +85,20 @@ export default function UserConfig() {
             Sair
           </p>
         </div>
+        <div className={styles.info}>
+          <AiOutlineWarning
+            color="#A22"
+            size={24}
+            style={{ marginRight: '10px', cursor: 'pointer' }}
+            onClick={openModalDelete}
+          />
+          <p
+            style={{ color: '#A22', cursor: 'pointer' }}
+            onClick={openModalDelete}
+          >
+            Deletar conta
+          </p>
+        </div>
       </div>
       {modalPersonal && (
         <ModalPersonalData
@@ -95,6 +115,12 @@ export default function UserConfig() {
         <ModalLogout
           modalLogout={modalLogout}
           closeModalLogout={closeModalLogout}
+        />
+      )}
+      {modalDelete && (
+        <ModalDeleteUser
+          modalDelete={modalDelete}
+          closeModalDelete={closeModalDelete}
         />
       )}
     </section>

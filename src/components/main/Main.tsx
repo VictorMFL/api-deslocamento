@@ -91,7 +91,7 @@ export default function Main() {
                 idConductor={item.id}
                 idVehicle={
                   vehicleData[index]?.id === undefined
-                    ? 1000 // numero gande para poder não executar o PUT pois esse id não tem na API.
+                    ? 1000 // numero grande para poder não executar o PUT pois esse id não tem na API.
                     : vehicleData[index]?.id
                 }
                 name={item.nome}
