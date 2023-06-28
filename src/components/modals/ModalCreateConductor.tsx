@@ -98,8 +98,8 @@ export default function ModalCreateConductor({
               alignItems: 'center',
               flexDirection: 'column',
               borderRadius: '20px',
-              padding: '10px',
               position: 'relative',
+              minWidth: '250px',
             }}
           >
             <p style={{ textAlign: 'center', marginBottom: '10px' }}>
