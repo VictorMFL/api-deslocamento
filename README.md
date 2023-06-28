@@ -35,7 +35,7 @@ Este é um projeto desenvolvido utilizando Next.js, TypeScript, CSS Modules, Mat
 - **Design Responsivo**: O projeto é projetado de forma responsiva, adaptando-se a diferentes dispositivos e tamanhos de tela para proporcionar uma experiência agradável em todos os dispositivos.
 
 ## Deploy
-Para o deploy eu utilizei a plataforma da versel. [Link](https://api-deslocamento-zeta.vercel.app/).
+Para o deploy eu utilizei a plataforma da vercel. [Link](https://api-deslocamento-zeta.vercel.app/).
 
 ## OBS
 Não cosegui fazer o PUT do condutor pois a resposta recebida pela API era que o condutor tinha sido atualizado mas na verdade ele não era atualizado.
