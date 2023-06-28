@@ -49,7 +49,6 @@ export default function LoginPage() {
         'https://api-deslocamento.herokuapp.com/api/v1/Cliente',
       )
       setData(response.data)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }

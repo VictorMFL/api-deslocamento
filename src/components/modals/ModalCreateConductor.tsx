@@ -18,9 +18,7 @@ type CreateConductorProps = {
 const postData = async (url: string, requestBody: any) => {
   try {
     const response = await axios.post(url, requestBody)
-
-    const newData = response.data
-    console.log(newData)
+    console.log('condutor criado' + response.data)
   } catch (error) {
     console.error('Falha ao criar novo Condutor', error)
     return false

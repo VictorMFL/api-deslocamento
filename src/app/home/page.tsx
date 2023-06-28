@@ -35,7 +35,6 @@ export default function Home() {
       window.localStorage.setItem('Numero', number)
       window.localStorage.setItem('Bairro', neighborhood)
       window.localStorage.setItem('Logradouro', publicPlace)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }

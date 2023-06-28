@@ -51,7 +51,6 @@ export default function Main() {
         'https://api-deslocamento.herokuapp.com/api/v1/Condutor',
       )
       setConductorData(response.data)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }
@@ -63,7 +62,6 @@ export default function Main() {
         'https://api-deslocamento.herokuapp.com/api/v1/Veiculo',
       )
       setVehicleData(response.data)
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }

@@ -90,7 +90,6 @@ export default function LoginPage() {
       )
       const data = response.data
       window.localStorage.setItem('Id', data) // guarda o id do usuário criado
-      console.log(response.data)
     } catch (error) {
       console.log(error)
     }
